@@ -658,11 +658,9 @@
         }
 
         async function fetchGoogleSheetsData() {
-            // ID Spreadsheet disandikan dengan Base64 agar tidak terlihat secara gamblang (obfuscated)
-            // Base64 string mewakili: '1kLKs9Wk4X-vJMzuiiwnTrjIX47Miwoq96Qrxi8KD-Nc'
-            const encodedSheetId = 'MWtMS3M5V2s0WC12Sk16dWlpd25UcmpJWDQ3TWl3b3E5NlFyeGk4S0QtTmM=';
-            const sheetId = atob(encodedSheetId); // Mendekode kembali menjadi ID asli secara runtime
             
+            const encodedSheetId = 'MWtMS3M5V2s0WC12Sk16dWlpd25UcmpJWDQ3TWl3b3E5NlFyeGk4S0QtTmM=';
+            const sheetId = atob(encodedSheetId); 
             const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=FIX`;
             
             try {
