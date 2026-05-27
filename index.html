@@ -59,463 +59,825 @@
                     <i class="ph-fill ph-student text-3xl text-gold-500"></i>
                     <span class="font-bold text-lg tracking-tight">SMPIP Baitul Maal</span>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4 text-sm font-medium">
-                        <a href="#beranda" class="hover:text-gold-500 px-3 py-2 transition-colors">Beranda</a>
-                        <a href="#perbandingan" class="hover:text-gold-500 px-3 py-2 transition-colors">Data TKA</a>
-                        <a href="#analisis" class="hover:text-gold-500 px-3 py-2 transition-colors">Analisis Sistem</a>
-                        <a href="#rekomendasi" class="hover:text-gold-500 px-3 py-2 transition-colors">Rekomendasi</a>
-                        <a href="#simulasi" class="bg-gold-500 text-brand-900 px-4 py-2 rounded-full hover:bg-gold-600 transition-colors">Simulasi Nilai</a>
-                    </div>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-2 text-sm font-medium">
+                    <a href="#beranda" onclick="logout()" class="hover:text-gold-500 px-2 py-2 transition-colors">Beranda</a>
+                    <a href="#perbandingan" onclick="logout()" class="hover:text-gold-500 px-2 py-2 transition-colors">Data TKA</a>
+                    <a href="#analisis" onclick="logout()" class="hover:text-gold-500 px-2 py-2 transition-colors">Analisis Sistem</a>
+                    <a href="#rekomendasi" onclick="logout()" class="hover:text-gold-500 px-2 py-2 transition-colors">Rekomendasi</a>
+                    <a href="#simulasi" onclick="logout()" class="bg-gold-500 text-brand-900 px-3 py-1.5 rounded-full hover:bg-gold-600 transition-colors">Simulasi</a>
+                    
+                    <div class="h-6 w-px bg-brand-700 mx-2"></div>
+                    
+                    <button onclick="openModal('guru')" class="bg-brand-700 text-white px-4 py-1.5 rounded-full hover:bg-brand-800 border border-brand-600 transition-colors flex items-center">
+                        <i class="ph-bold ph-chalkboard-teacher mr-1"></i> Guru
+                    </button>
+                    <button onclick="openModal('siswa')" class="bg-white text-brand-900 px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors flex items-center shadow-sm">
+                        <i class="ph-bold ph-user mr-1"></i> Siswa
+                    </button>
+                </div>
+                <!-- Mobile Portal Icons (Minimalist) -->
+                <div class="flex lg:hidden items-center space-x-3">
+                    <button onclick="openModal('guru')" class="text-white hover:text-gold-500"><i class="ph-bold ph-chalkboard-teacher text-2xl"></i></button>
+                    <button onclick="openModal('siswa')" class="text-white hover:text-gold-500"><i class="ph-bold ph-user text-2xl"></i></button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="beranda" class="pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
-        <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-100 text-brand-800 font-semibold text-sm mb-6 shadow-sm border border-brand-200">
-            <i class="ph ph-chart-line-up mr-2 text-lg"></i> Laporan Resmi Capaian Akademik
-        </div>
-        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-900 leading-tight mb-4">
-            Hasil Analisa Mendalam Nilai TKA <br class="hidden md:block">
-            <span class="text-gold-600">Tahun Ajaran 2025-2026</span>
-        </h1>
-        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
-            Kebanggaan bagi seluruh warga SMP Islam Plus Baitul Maal. Capaian Tes Kemampuan Akademik (TKA) siswa-siswi kita berhasil menorehkan prestasi gemilang, membuktikan bahwa kualitas sekolah kita kini sejajar dengan sekolah-sekolah top nasional dari DKI Jakarta, Yogyakarta, dan Jawa Timur.
-        </p>
-    </section>
+    <!-- WRAPPER UNTUK KONTEN UTAMA (Disembunyikan saat masuk portal) -->
+    <div id="main-content">
+        <!-- Hero Section -->
+        <section id="beranda" class="pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center px-4 py-2 rounded-full bg-brand-100 text-brand-800 font-semibold text-sm mb-6 shadow-sm border border-brand-200">
+                <i class="ph ph-chart-line-up mr-2 text-lg"></i> Laporan Resmi Capaian Akademik
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-brand-900 leading-tight mb-4">
+                Hasil Analisa Mendalam Nilai TKA <br class="hidden md:block">
+                <span class="text-gold-600">Tahun Ajaran 2025-2026</span>
+            </h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                Kebanggaan bagi seluruh warga SMP Islam Plus Baitul Maal. Capaian Tes Kemampuan Akademik (TKA) siswa-siswi kita berhasil menorehkan prestasi gemilang, membuktikan bahwa kualitas sekolah kita kini sejajar dengan sekolah-sekolah top nasional dari DKI Jakarta, Yogyakarta, dan Jawa Timur.
+            </p>
+        </section>
 
-    <!-- Key Metrics -->
-    <section class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Math Card -->
-            <div class="glass-card rounded-2xl p-6 border-t-4 border-t-blue-500 hover:-translate-y-1 transition-transform duration-300">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Rata-Rata TKA Matematika</p>
-                        <h2 class="text-4xl font-bold text-slate-800 mt-2">59.51</h2>
-                        <div class="flex items-center mt-2 text-sm">
-                            <span class="text-green-600 font-semibold flex items-center bg-green-100 px-2 py-1 rounded">
-                                <i class="ph ph-trend-up mr-1"></i> +19.61
-                            </span>
-                            <span class="text-slate-500 ml-2">vs Rata-rata Banten (39.90)</span>
+        <!-- Key Metrics -->
+        <section class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Math Card -->
+                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-blue-500 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Rata-Rata TKA Matematika</p>
+                            <h2 class="text-4xl font-bold text-slate-800 mt-2">59.51</h2>
+                            <div class="flex items-center mt-2 text-sm">
+                                <span class="text-green-600 font-semibold flex items-center bg-green-100 px-2 py-1 rounded">
+                                    <i class="ph ph-trend-up mr-1"></i> +19.61
+                                </span>
+                                <span class="text-slate-500 ml-2">vs Rata-rata Banten (39.90)</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
+                            <i class="ph ph-calculator text-3xl"></i>
                         </div>
                     </div>
-                    <div class="p-3 bg-blue-100 text-blue-600 rounded-xl">
-                        <i class="ph ph-calculator text-3xl"></i>
+                </div>
+
+                <!-- Indo Card -->
+                <div class="glass-card rounded-2xl p-6 border-t-4 border-t-red-500 hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Rata-Rata TKA B. Indonesia</p>
+                            <h2 class="text-4xl font-bold text-slate-800 mt-2">79.51</h2>
+                            <div class="flex items-center mt-2 text-sm">
+                                <span class="text-green-600 font-semibold flex items-center bg-green-100 px-2 py-1 rounded">
+                                    <i class="ph ph-trend-up mr-1"></i> +20.75
+                                </span>
+                                <span class="text-slate-500 ml-2">vs Rata-rata Banten (58.76)</span>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-red-100 text-red-600 rounded-xl">
+                            <i class="ph ph-book-open-text text-3xl"></i>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Indo Card -->
-            <div class="glass-card rounded-2xl p-6 border-t-4 border-t-red-500 hover:-translate-y-1 transition-transform duration-300">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider">Rata-Rata TKA B. Indonesia</p>
-                        <h2 class="text-4xl font-bold text-slate-800 mt-2">79.51</h2>
-                        <div class="flex items-center mt-2 text-sm">
-                            <span class="text-green-600 font-semibold flex items-center bg-green-100 px-2 py-1 rounded">
-                                <i class="ph ph-trend-up mr-1"></i> +20.75
-                            </span>
-                            <span class="text-slate-500 ml-2">vs Rata-rata Banten (58.76)</span>
+        <!-- Charts Section -->
+        <section id="perbandingan" class="py-16 bg-white border-y border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-brand-900">Visualisasi Komparasi Nasional</h2>
+                    <p class="text-slate-600 mt-2">Sebaran data yang membuktikan kelas dan kualitas SMPIP Baitul Maal di kancah yang lebih luas.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Bar Chart: School vs National Top Provinces -->
+                    <div class="lg:col-span-3 glass-card p-6 rounded-2xl">
+                        <h3 class="text-lg font-bold text-center mb-4 text-slate-700">Komparasi SMPIP Baitul Maal vs Provinsi Top Nasional & Banten</h3>
+                        <div class="relative h-80 w-full">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                        <div class="mt-4 p-4 bg-brand-50 border border-brand-200 rounded-xl text-sm text-slate-700">
+                            <p><strong>Fakta Menarik:</strong> Grafik di atas membuktikan pencapaian akademis siswa-siswi kita tidak hanya jauh melampaui rata-rata wilayah Banten. Dengan rata-rata MTK <strong>59.51</strong> dan B.Indo <strong>79.51</strong>, kualitas SMPIP Baitul Maal secara nyata <strong>lebih unggul</strong> dari rata-rata provinsi terbaik di Indonesia sekalipun (seperti DI Yogyakarta dan DKI Jakarta).</p>
                         </div>
                     </div>
-                    <div class="p-3 bg-red-100 text-red-600 rounded-xl">
-                        <i class="ph ph-book-open-text text-3xl"></i>
+
+                    <!-- Doughnut Chart: Math -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center lg:col-span-1 lg:col-start-1">
+                        <h3 class="text-lg font-bold text-center mb-2 text-slate-700">Distribusi Kategori Matematika</h3>
+                        <div class="relative w-full max-w-[250px] aspect-square">
+                            <canvas id="mathChart"></canvas>
+                        </div>
+                        <p class="text-sm text-center text-slate-500 mt-4">Sebanyak 61% siswa berada di kategori Baik.</p>
+                    </div>
+
+                    <!-- Doughnut Chart: Indo -->
+                    <div class="glass-card p-6 rounded-2xl flex flex-col items-center lg:col-span-1">
+                        <h3 class="text-lg font-bold text-center mb-2 text-slate-700">Distribusi Kategori B. Indonesia</h3>
+                        <div class="relative w-full max-w-[250px] aspect-square">
+                            <canvas id="indoChart"></canvas>
+                        </div>
+                        <p class="text-sm text-center text-slate-500 mt-4">Sebanyak 64% siswa meraih kategori Baik hingga Istimewa.</p>
+                    </div>
+                    
+                    <!-- Info Summary -->
+                    <div class="glass-card p-6 rounded-2xl bg-brand-50 border-brand-200 flex flex-col justify-center lg:col-span-1">
+                        <h3 class="text-xl font-bold text-brand-900 mb-3"><i class="ph-fill ph-info text-brand-600 mr-2"></i>Analisa Kesimpulan Mendalam</h3>
+                        <ul class="space-y-3 text-sm text-slate-700">
+                            <li class="flex items-start">
+                                <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span><strong>Lompatan Kuantum Matematika:</strong> Pemahaman komputasional (TI) terbukti menambal kelemahan logika dasar. Capaian (59.51) meninggalkan jauh DKI (45.31) dan Jatim (41.36).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span><strong>Dominasi Literasi Bahasa:</strong> Efek langsung PjBL yang mewajibkan analisa. Rata-rata 79.51 adalah bukti literasi tingkat tinggi, mengungguli DIY (73.74).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
+                                <span><strong>Level Nasional:</strong> Kita resmi menciptakan iklim belajar eksklusif yang setara, bahkan lebih kompetitif, dibanding sekolah-sekolah elit di pulau Jawa.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Charts Section -->
-    <section id="perbandingan" class="py-16 bg-white border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Analysis & System Section -->
+        <section id="analisis" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-brand-900">Visualisasi Komparasi Nasional</h2>
-                <p class="text-slate-600 mt-2">Sebaran data yang membuktikan kelas dan kualitas SMPIP Baitul Maal di kancah yang lebih luas.</p>
+                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Rahasia Keberhasilan</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">Dampak Nyata Ekosistem Pembelajaran</h2>
+                <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Mengapa nilai TKA siswa kita bisa melesat menembus level provinsi top nasional? Jawabannya ada pada sistem PjBL holistik yang kita terapkan sehari-hari.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Bar Chart: School vs National Top Provinces -->
-                <div class="lg:col-span-3 glass-card p-6 rounded-2xl">
-                    <h3 class="text-lg font-bold text-center mb-4 text-slate-700">Komparasi SMPIP Baitul Maal vs Provinsi Top Nasional & Banten</h3>
-                    <div class="relative h-80 w-full">
-                        <canvas id="comparisonChart"></canvas>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Point 1 -->
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-2xl">
+                            <i class="ph-fill ph-lightbulb"></i>
+                        </div>
                     </div>
-                    <div class="mt-4 p-4 bg-brand-50 border border-brand-200 rounded-xl text-sm text-slate-700">
-                        <p><strong>Fakta Menarik:</strong> Grafik di atas membuktikan pencapaian akademis siswa-siswi kita tidak hanya jauh melampaui rata-rata wilayah Banten. Dengan rata-rata MTK <strong>59.51</strong> dan B.Indo <strong>79.51</strong>, kualitas SMPIP Baitul Maal secara nyata <strong>lebih unggul</strong> dari rata-rata provinsi terbaik di Indonesia sekalipun (seperti DI Yogyakarta dan DKI Jakarta).</p>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Project Based Learning (PjBL) Holistik</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Siswa tidak belajar secara terkotak-kotak, melainkan menggunakan Matematika dan B. Indonesia sebagai <strong>alat pemecah masalah</strong> dalam proyek nyata. Hal ini otomatis mengasah nalar kritis (HOTS) tanpa mereka merasa terbebani hafalan.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Doughnut Chart: Math -->
-                <div class="glass-card p-6 rounded-2xl flex flex-col items-center lg:col-span-1 lg:col-start-1">
-                    <h3 class="text-lg font-bold text-center mb-2 text-slate-700">Distribusi Kategori Matematika</h3>
-                    <div class="relative w-full max-w-[250px] aspect-square">
-                        <canvas id="mathChart"></canvas>
+                <!-- Point 2 -->
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-2xl">
+                            <i class="ph-fill ph-brain"></i>
+                        </div>
                     </div>
-                    <p class="text-sm text-center text-slate-500 mt-4">Sebanyak 61% siswa berada di kategori Baik.</p>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Belajar Sesuai Domain Perkembangan Anak</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Pendekatan kita menghindari <em>burnout</em> akademis. Kesehatan mental yang terjaga melahirkan siswa yang memiliki daya tahan stres (*resilience*) tinggi saat menghadapi lembar ujian, sehingga meminimalisir kecerobohan.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Doughnut Chart: Indo -->
-                <div class="glass-card p-6 rounded-2xl flex flex-col items-center lg:col-span-1">
-                    <h3 class="text-lg font-bold text-center mb-2 text-slate-700">Distribusi Kategori B. Indonesia</h3>
-                    <div class="relative w-full max-w-[250px] aspect-square">
-                        <canvas id="indoChart"></canvas>
+                <!-- Point 3 -->
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-2xl">
+                            <i class="ph-fill ph-mosque"></i>
+                        </div>
                     </div>
-                    <p class="text-sm text-center text-slate-500 mt-4">Sebanyak 64% siswa meraih kategori Baik hingga Istimewa.</p>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Karakter Islami (Tauhid & Taqwa)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Penanaman etos <em>ikhtiar</em> maksimal dan <em>tawakkal</em> menciptakan motivasi internal (Growth Mindset). Siswa belajar diniatkan sebagai ibadah, membangun kejujuran dan ketenangan batin yang luar biasa saat ujian.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Point 4 -->
+                <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="flex-shrink-0 mt-1">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-2xl">
+                            <i class="ph-fill ph-desktop"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Fokus Teknologi Informasi (TI)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Integrasi TI memperkuat jalur <em>Computational Thinking</em> siswa. Algoritma dan logika komputer memiliki korelasi linier kuat dengan matematika, membuat siswa tangkas mengurai soal kompleks dan siap menghadapi ujian berbasis komputer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rekomendasi & Saran Membangun -->
+        <section id="rekomendasi" class="py-16 bg-brand-50 border-t border-brand-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Tindak Lanjut</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2">Saran & Rekomendasi Membangun</h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Langkah strategis ke depan untuk mempertahankan prestasi, menjembatani kesenjangan minor, dan memaksimalkan potensi seluruh siswa berdasarkan data.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Saran 1 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4">
+                            <i class="ph-fill ph-users-three text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">1. Optimalisasi Tutor Sebaya</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Manfaatkan ±61% siswa yang sudah berada di kategori <strong>Baik</strong> untuk menjadi mentor bagi rekannya di kelompok menengah. Dalam lingkungan bernilai Islami, konsep ini sangat sejalan dengan budaya <em>ta'awun</em> (tolong-menolong dalam kebaikan).
+                        </p>
+                    </div>
+
+                    <!-- Saran 2 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-4">
+                            <i class="ph-fill ph-chart-polar text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">2. Intervensi Kelompok 'Memadai'</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Gunakan sistem TI sekolah untuk membuat <em>diagnostic assessment</em> pelacakan kendala. Jika fokus perbaikan diarahkan pada 35% siswa 'Memadai' ini, rata-rata sekolah di TKA berikutnya diproyeksikan dapat menembus skor absolut 65+ (Matematika).
+                        </p>
+                    </div>
+
+                    <!-- Saran 3 -->
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
+                        <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mb-4">
+                            <i class="ph-fill ph-share-network text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">3. Sinergi Orang Tua & Branding Sekolah</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Orang tua dihimbau untuk tetap mempertahankan iklim bebas tekanan di rumah. Dengan pembuktian nyata melampaui rata-rata sekolah Jakarta dan Jogja, prestasi ini harus menjadi aset branding utama bahwa pendidikan holistik-Islami terbukti sangat berprestasi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Simulator -->
+        <section id="simulasi" class="py-16 bg-brand-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <i class="ph ph-exam text-5xl text-gold-500 mb-4"></i>
+                <h2 class="text-3xl font-bold mb-4">Simulasi Kalkulator Nilai TKA</h2>
+                <p class="text-brand-100 mb-8 max-w-2xl mx-auto">
+                    Silakan Bapak/Ibu Guru atau Orang Tua memasukkan jumlah soal benar dari total 30 soal ujian, untuk mengetahui estimasi nilai dan kategori akademik siswa berdasarkan standar analisa kami.
+                </p>
+
+                <div class="bg-white text-slate-800 rounded-2xl p-6 md:p-8 max-w-md mx-auto shadow-2xl">
+                    <div class="mb-6 text-left">
+                        <label for="correctAnswers" class="block text-sm font-semibold text-slate-600 mb-2">Jumlah Jawaban Benar (0 - 30)</label>
+                        <div class="flex items-center gap-4">
+                            <input type="range" id="correctAnswersRange" min="0" max="30" value="15" class="w-full accent-brand-600">
+                            <input type="number" id="correctAnswers" min="0" max="30" value="15" class="w-20 px-3 py-2 border border-slate-300 rounded-lg text-lg font-bold text-center focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Math Result -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                            <p class="text-xs font-bold text-slate-500 uppercase">Matematika</p>
+                            <h4 id="simMathScore" class="text-3xl font-black text-brand-700 my-1">50.00</h4>
+                            <span id="simMathCat" class="inline-block px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full">Memadai</span>
+                        </div>
+                        <!-- Indo Result -->
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                            <p class="text-xs font-bold text-slate-500 uppercase">B. Indonesia</p>
+                            <h4 id="simIndoScore" class="text-3xl font-black text-brand-700 my-1">50.00</h4>
+                            <span id="simIndoCat" class="inline-block px-2 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full">Kurang</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+            <p>&copy; 2026 SMP Islam Plus Baitul Maal.</p>
+            <p class="mt-2 text-slate-500">Laporan Analisis Akademik Internal. Dibuat berdasarkan hasil capaian nyata siswa terhadap standar nasional.</p>
+        </footer>
+    </div>
+    <!-- END WRAPPER UTAMA -->
+
+    <!-- ============================================== -->
+    <!-- VIEWS: PORTAL GURU -->
+    <!-- ============================================== -->
+    <section id="portal-guru-view" class="hidden pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-brand-900">Dashboard Guru</h2>
+                <p class="text-slate-600">Rekapitulasi Lengkap Nilai TKA Siswa</p>
+            </div>
+            <button onclick="logout()" class="bg-red-100 text-red-600 px-5 py-2 rounded-lg font-bold hover:bg-red-200 transition-colors flex items-center shadow-sm">
+                <i class="ph-bold ph-sign-out mr-2"></i> Keluar Portal
+            </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-blue-500 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-bold text-slate-500 uppercase">Rata-Rata MTK Total</p>
+                    <h3 id="stat-guru-mtk" class="text-3xl font-black text-slate-800 mt-1">0.00</h3>
+                </div>
+                <div class="p-3 bg-blue-50 text-blue-500 rounded-full text-2xl"><i class="ph-fill ph-calculator"></i></div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-red-500 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-bold text-slate-500 uppercase">Rata-Rata B.Indo Total</p>
+                    <h3 id="stat-guru-indo" class="text-3xl font-black text-slate-800 mt-1">0.00</h3>
+                </div>
+                <div class="p-3 bg-red-50 text-red-500 rounded-full text-2xl"><i class="ph-fill ph-book-open-text"></i></div>
+            </div>
+            <div class="glass-card p-6 rounded-2xl border-l-4 border-l-brand-500 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-bold text-slate-500 uppercase">Rata-Rata Gabungan</p>
+                    <h3 id="stat-guru-gab" class="text-3xl font-black text-brand-700 mt-1">0.00</h3>
+                </div>
+                <div class="p-3 bg-brand-50 text-brand-600 rounded-full text-2xl"><i class="ph-fill ph-medal"></i></div>
+            </div>
+        </div>
+
+        <!-- Tabel Data Siswa -->
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-600 text-sm uppercase tracking-wider font-bold">
+                            <th class="px-4 py-3 border-b border-slate-200">No</th>
+                            <th class="px-4 py-3 border-b border-slate-200">No Peserta</th>
+                            <th class="px-4 py-3 border-b border-slate-200">NISN</th>
+                            <th class="px-4 py-3 border-b border-slate-200">Nama Peserta</th>
+                            <th class="px-4 py-3 border-b border-slate-200">Tempat, Tanggal Lahir</th>
+                            <th class="px-4 py-3 border-b border-slate-200 text-center">MTK</th>
+                            <th class="px-4 py-3 border-b border-slate-200 text-center">B.Indo</th>
+                            <th class="px-4 py-3 border-b border-slate-200 text-center text-brand-700 font-black">Rata-Rata</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guru-table-body" class="divide-y divide-slate-100 text-sm text-slate-700">
+                        <!-- Rows injected via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- VIEWS: PORTAL SISWA -->
+    <!-- ============================================== -->
+    <section id="portal-siswa-view" class="hidden pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto min-h-screen">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+            <div>
+                <h2 class="text-3xl font-bold text-brand-900">Dashboard Siswa</h2>
+                <p class="text-slate-600">Laporan Hasil Tes Kemampuan Akademik Pribadi</p>
+            </div>
+            <button onclick="logout()" class="bg-red-100 text-red-600 px-5 py-2 rounded-lg font-bold hover:bg-red-200 transition-colors flex items-center shadow-sm">
+                <i class="ph-bold ph-sign-out mr-2"></i> Keluar Portal
+            </button>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-md border border-slate-100 mb-8 relative overflow-hidden">
+            <!-- Dekorasi Abstrak -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-brand-50 rounded-bl-full -z-0 opacity-50"></div>
+            
+            <div class="border-b border-slate-100 pb-6 mb-8 relative z-10">
+                <p class="text-xs font-bold text-gold-600 tracking-wider uppercase mb-1">Identitas Peserta</p>
+                <h3 id="sw-nama" class="text-2xl md:text-3xl font-black text-slate-800 capitalize">Nama Siswa</h3>
+                <div class="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-4 text-slate-500 mt-3 text-sm font-medium">
+                    <span class="flex items-center"><i class="ph-fill ph-identification-card text-lg mr-1 text-slate-400"></i> NISN: <span id="sw-nisn" class="ml-1 text-slate-700"></span></span>
+                    <span class="flex items-center"><i class="ph-fill ph-ticket text-lg mr-1 text-slate-400"></i> No. Peserta: <span id="sw-nopes" class="ml-1 text-slate-700"></span></span>
+                    <span class="flex items-center"><i class="ph-fill ph-calendar-blank text-lg mr-1 text-slate-400"></i> TTL: <span id="sw-ttl" class="ml-1 text-slate-700"></span></span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center relative overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-blue-500"></div>
+                    <p class="text-sm font-bold text-slate-500 uppercase mb-3">Matematika</p>
+                    <h4 id="sw-mtk" class="text-5xl font-black text-slate-800 mb-3">0.00</h4>
+                    <span id="sw-mtk-cat" class="inline-block px-4 py-1 text-xs font-bold rounded-full">Status</span>
                 </div>
                 
-                <!-- Info Summary -->
-                <div class="glass-card p-6 rounded-2xl bg-brand-50 border-brand-200 flex flex-col justify-center lg:col-span-1">
-                    <h3 class="text-xl font-bold text-brand-900 mb-3"><i class="ph-fill ph-info text-brand-600 mr-2"></i>Analisa Kesimpulan Mendalam</h3>
-                    <ul class="space-y-3 text-sm text-slate-700">
-                        <li class="flex items-start">
-                            <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
-                            <span><strong>Lompatan Kuantum Matematika:</strong> Pemahaman komputasional (TI) terbukti menambal kelemahan logika dasar. Capaian (59.51) meninggalkan jauh DKI (45.31) dan Jatim (41.36).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
-                            <span><strong>Dominasi Literasi Bahasa:</strong> Efek langsung PjBL yang mewajibkan analisa. Rata-rata 79.51 adalah bukti literasi tingkat tinggi, mengungguli DIY (73.74).</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="ph-fill ph-check-circle text-green-500 mt-0.5 mr-2"></i>
-                            <span><strong>Level Nasional:</strong> Kita resmi menciptakan iklim belajar eksklusif yang setara, bahkan lebih kompetitif, dibanding sekolah-sekolah elit di pulau Jawa.</span>
-                        </li>
-                    </ul>
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 text-center relative overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-red-500"></div>
+                    <p class="text-sm font-bold text-slate-500 uppercase mb-3">Bahasa Indonesia</p>
+                    <h4 id="sw-indo" class="text-5xl font-black text-slate-800 mb-3">0.00</h4>
+                    <span id="sw-indo-cat" class="inline-block px-4 py-1 text-xs font-bold rounded-full">Status</span>
+                </div>
+                
+                <div class="bg-brand-50 rounded-2xl p-6 border border-brand-200 text-center relative overflow-hidden shadow-inner transform md:-translate-y-2">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-500"></div>
+                    <p class="text-sm font-bold text-brand-700 uppercase mb-3">Rata-Rata Pribadi</p>
+                    <h4 id="sw-avg" class="text-5xl font-black text-brand-900 mb-3">0.00</h4>
+                    <span id="sw-avg-cat" class="inline-block px-4 py-1 text-xs font-bold rounded-full bg-brand-200 text-brand-800">Status</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Analysis & System Section -->
-    <section id="analisis" class="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-12">
-            <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Rahasia Keberhasilan</span>
-            <h2 class="text-3xl font-bold text-slate-900 mt-2">Dampak Nyata Ekosistem Pembelajaran</h2>
-            <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Mengapa nilai TKA siswa kita bisa melesat menembus level provinsi top nasional? Jawabannya ada pada sistem PjBL holistik yang kita terapkan sehari-hari.</p>
-        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Point 1 -->
-            <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="flex-shrink-0 mt-1">
-                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 text-2xl">
-                        <i class="ph-fill ph-lightbulb"></i>
-                    </div>
+    <!-- ============================================== -->
+    <!-- MODAL LOGIN GURU -->
+    <!-- ============================================== -->
+    <div id="modal-guru" class="fixed inset-0 z-[100] hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl relative">
+            <button onclick="closeModal('guru')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors"><i class="ph-bold ph-x text-xl"></i></button>
+            <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                <i class="ph-fill ph-chalkboard-teacher"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-brand-900 mb-1">Portal Guru</h3>
+            <p class="text-slate-500 text-sm mb-6">Silakan masuk menggunakan username & password administrasi sekolah.</p>
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Username</label>
+                    <input type="text" id="guru-user" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="Masukkan Username">
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Project Based Learning (PjBL) Holistik</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Siswa tidak belajar secara terkotak-kotak, melainkan menggunakan Matematika dan B. Indonesia sebagai <strong>alat pemecah masalah</strong> dalam proyek nyata. Hal ini otomatis mengasah nalar kritis (HOTS) tanpa mereka merasa terbebani hafalan.
-                    </p>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+                    <input type="password" id="guru-pass" onkeydown="if(event.key === 'Enter') loginGuru()" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all" placeholder="••••••••">
                 </div>
-            </div>
-
-            <!-- Point 2 -->
-            <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="flex-shrink-0 mt-1">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 text-2xl">
-                        <i class="ph-fill ph-brain"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Belajar Sesuai Domain Perkembangan Anak</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Pendekatan kita menghindari <em>burnout</em> akademis. Kesehatan mental yang terjaga melahirkan siswa yang memiliki daya tahan stres (*resilience*) tinggi saat menghadapi lembar ujian, sehingga meminimalisir kecerobohan.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Point 3 -->
-            <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="flex-shrink-0 mt-1">
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 text-2xl">
-                        <i class="ph-fill ph-mosque"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Karakter Islami (Tauhid & Taqwa)</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Penanaman etos <em>ikhtiar</em> maksimal dan <em>tawakkal</em> menciptakan motivasi internal (Growth Mindset). Siswa belajar diniatkan sebagai ibadah, membangun kejujuran dan ketenangan batin yang luar biasa saat ujian.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Point 4 -->
-            <div class="flex gap-4 p-6 bg-white rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="flex-shrink-0 mt-1">
-                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 text-2xl">
-                        <i class="ph-fill ph-desktop"></i>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold text-slate-800 mb-2">Fokus Teknologi Informasi (TI)</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Integrasi TI memperkuat jalur <em>Computational Thinking</em> siswa. Algoritma dan logika komputer memiliki korelasi linier kuat dengan matematika, membuat siswa tangkas mengurai soal kompleks dan siap menghadapi ujian berbasis komputer.
-                    </p>
-                </div>
+                <p id="guru-error" class="text-red-500 text-sm hidden font-medium bg-red-50 p-2 rounded-lg text-center"><i class="ph-bold ph-warning-circle mr-1"></i> Username atau Password salah!</p>
+                <button onclick="loginGuru()" class="w-full bg-brand-600 text-white font-bold py-3 rounded-xl hover:bg-brand-700 transition-colors shadow-md">Masuk Dashboard</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Rekomendasi & Saran Membangun -->
-    <section id="rekomendasi" class="py-16 bg-brand-50 border-t border-brand-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Tindak Lanjut</span>
-                <h2 class="text-3xl font-bold text-slate-900 mt-2">Saran & Rekomendasi Membangun</h2>
-                <p class="text-slate-600 mt-2 max-w-2xl mx-auto">Langkah strategis ke depan untuk mempertahankan prestasi, menjembatani kesenjangan minor, dan memaksimalkan potensi seluruh siswa berdasarkan data.</p>
+    <!-- ============================================== -->
+    <!-- MODAL LOGIN SISWA -->
+    <!-- ============================================== -->
+    <div id="modal-siswa" class="fixed inset-0 z-[100] hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl p-8 w-full max-w-md shadow-2xl relative">
+            <button onclick="closeModal('siswa')" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors"><i class="ph-bold ph-x text-xl"></i></button>
+            <div class="w-12 h-12 bg-gold-100 text-gold-600 rounded-full flex items-center justify-center text-2xl mb-4">
+                <i class="ph-fill ph-student"></i>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Saran 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
-                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 mb-4">
-                        <i class="ph-fill ph-users-three text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">1. Optimalisasi Tutor Sebaya</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Manfaatkan ±61% siswa yang sudah berada di kategori <strong>Baik</strong> untuk menjadi mentor bagi rekannya di kelompok menengah. Dalam lingkungan bernilai Islami, konsep ini sangat sejalan dengan budaya <em>ta'awun</em> (tolong-menolong dalam kebaikan).
-                    </p>
+            <h3 class="text-2xl font-bold text-brand-900 mb-1">Portal Siswa</h3>
+            <p class="text-slate-500 text-sm mb-6">Silakan masukkan Nomor Peserta Anda untuk melihat hasil ujian.</p>
+            <div class="space-y-5">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">Nomor Peserta</label>
+                    <input type="text" id="siswa-user" onkeydown="if(event.key === 'Enter') loginSiswa()" class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-gold-500 focus:border-gold-500 outline-none transition-all" placeholder="Misal: 102930xxx">
                 </div>
-
-                <!-- Saran 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 mb-4">
-                        <i class="ph-fill ph-chart-polar text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">2. Intervensi Kelompok 'Memadai'</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Gunakan sistem TI sekolah untuk membuat <em>diagnostic assessment</em> pelacakan kendala. Jika fokus perbaikan diarahkan pada 35% siswa 'Memadai' ini, rata-rata sekolah di TKA berikutnya diproyeksikan dapat menembus skor absolut 65+ (Matematika).
-                    </p>
-                </div>
-
-                <!-- Saran 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-brand-200 hover:border-brand-400 hover:shadow-md transition-all duration-300">
-                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 mb-4">
-                        <i class="ph-fill ph-share-network text-2xl"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-slate-800 mb-2">3. Sinergi Orang Tua & Branding Sekolah</h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Orang tua dihimbau untuk tetap mempertahankan iklim bebas tekanan di rumah. Dengan pembuktian nyata melampaui rata-rata sekolah Jakarta dan Jogja, prestasi ini harus menjadi aset branding utama bahwa pendidikan holistik-Islami terbukti sangat berprestasi.
-                    </p>
-                </div>
+                <p id="siswa-error" class="text-red-500 text-sm hidden font-medium bg-red-50 p-2 rounded-lg text-center"><i class="ph-bold ph-warning-circle mr-1"></i> Nomor Peserta tidak ditemukan!</p>
+                <button onclick="loginSiswa()" class="w-full bg-gold-500 text-brand-900 font-bold py-3 rounded-xl hover:bg-gold-600 transition-colors shadow-md">Lihat Nilai</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Interactive Simulator -->
-    <section id="simulasi" class="py-16 bg-brand-900 text-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <i class="ph ph-exam text-5xl text-gold-500 mb-4"></i>
-            <h2 class="text-3xl font-bold mb-4">Simulasi Kalkulator Nilai TKA</h2>
-            <p class="text-brand-100 mb-8 max-w-2xl mx-auto">
-                Silakan Bapak/Ibu Guru atau Orang Tua memasukkan jumlah soal benar dari total 30 soal ujian, untuk mengetahui estimasi nilai dan kategori akademik siswa berdasarkan standar analisa kami.
-            </p>
-
-            <div class="bg-white text-slate-800 rounded-2xl p-6 md:p-8 max-w-md mx-auto shadow-2xl">
-                <div class="mb-6 text-left">
-                    <label for="correctAnswers" class="block text-sm font-semibold text-slate-600 mb-2">Jumlah Jawaban Benar (0 - 30)</label>
-                    <div class="flex items-center gap-4">
-                        <input type="range" id="correctAnswersRange" min="0" max="30" value="15" class="w-full accent-brand-600">
-                        <input type="number" id="correctAnswers" min="0" max="30" value="15" class="w-20 px-3 py-2 border border-slate-300 rounded-lg text-lg font-bold text-center focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4">
-                    <!-- Math Result -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                        <p class="text-xs font-bold text-slate-500 uppercase">Matematika</p>
-                        <h4 id="simMathScore" class="text-3xl font-black text-brand-700 my-1">50.00</h4>
-                        <span id="simMathCat" class="inline-block px-2 py-1 bg-yellow-100 text-yellow-800 text-xs font-bold rounded-full">Memadai</span>
-                    </div>
-                    <!-- Indo Result -->
-                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                        <p class="text-xs font-bold text-slate-500 uppercase">B. Indonesia</p>
-                        <h4 id="simIndoScore" class="text-3xl font-black text-brand-700 my-1">50.00</h4>
-                        <span id="simIndoCat" class="inline-block px-2 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full">Kurang</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
-        <p>&copy; 2026 SMP Islam Plus Baitul Maal.</p>
-        <p class="mt-2 text-slate-500">Laporan Analisis Akademik Internal. Dibuat berdasarkan hasil capaian nyata siswa terhadap standar nasional.</p>
-    </footer>
-
-    <!-- Scripts for Charts and Logic -->
+    <!-- Scripts for Logic and Charts -->
     <script>
         // Setup Chart Colors
         const colors = {
-            brand: '#16a34a',
-            gold: '#eab308',
-            blue: '#3b82f6',
-            purple: '#a855f7',
-            gray: '#94a3b8',
-            red: '#ef4444',
-            green: '#22c55e',
-            yellow: '#f59e0b'
+            brand: '#16a34a', gold: '#eab308', blue: '#3b82f6',
+            purple: '#a855f7', gray: '#94a3b8', red: '#ef4444',
+            green: '#22c55e', yellow: '#f59e0b'
         };
 
         Chart.defaults.font.family = '"Plus Jakarta Sans", sans-serif';
         Chart.defaults.color = '#475569';
 
-        // 1. Comparison Chart (Updated with Regional/National Data)
-        const ctxComp = document.getElementById('comparisonChart').getContext('2d');
-        new Chart(ctxComp, {
-            type: 'bar',
-            data: {
-                labels: ['Matematika', 'Bahasa Indonesia'],
-                datasets: [
-                    {
-                        label: 'SMP IP Baitul Maal',
-                        data: [59.51, 79.51],
-                        backgroundColor: colors.brand,
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'DI Yogyakarta (Top)',
-                        data: [51.65, 73.74],
-                        backgroundColor: colors.gold,
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'DKI Jakarta',
-                        data: [45.31, 71.31],
-                        backgroundColor: colors.blue,
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Jawa Timur',
-                        data: [41.36, 63.46],
-                        backgroundColor: colors.purple,
-                        borderRadius: 4,
-                    },
-                    {
-                        label: 'Prov. Banten (Regional)',
-                        data: [39.90, 58.76],
-                        backgroundColor: colors.gray,
-                        borderRadius: 4,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { position: 'top', labels: { boxWidth: 12, usePointStyle: true, pointStyle: 'circle' } },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.dataset.label + ': ' + context.raw.toFixed(2);
-                            }
-                        }
-                    }
+        // ==========================================
+        // 1. INIT CHARTS & SIMULASI (EXISTING LOGIC)
+        // ==========================================
+        function initCharts() {
+            // Comparison Chart
+            const ctxComp = document.getElementById('comparisonChart').getContext('2d');
+            new Chart(ctxComp, {
+                type: 'bar',
+                data: {
+                    labels: ['Matematika', 'Bahasa Indonesia'],
+                    datasets: [
+                        { label: 'SMP IP Baitul Maal', data: [59.51, 79.51], backgroundColor: colors.brand, borderRadius: 4 },
+                        { label: 'DI Yogyakarta (Top)', data: [51.65, 73.74], backgroundColor: colors.gold, borderRadius: 4 },
+                        { label: 'DKI Jakarta', data: [45.31, 71.31], backgroundColor: colors.blue, borderRadius: 4 },
+                        { label: 'Jawa Timur', data: [41.36, 63.46], backgroundColor: colors.purple, borderRadius: 4 },
+                        { label: 'Prov. Banten (Regional)', data: [39.90, 58.76], backgroundColor: colors.gray, borderRadius: 4 }
+                    ]
                 },
-                scales: {
-                    y: { beginAtZero: true, max: 100 }
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top', labels: { boxWidth: 12, usePointStyle: true, pointStyle: 'circle' } },
+                        tooltip: { callbacks: { label: (context) => context.dataset.label + ': ' + context.raw.toFixed(2) } }
+                    },
+                    scales: { y: { beginAtZero: true, max: 100 } }
                 }
-            }
-        });
+            });
 
-        // 2. Math Category Chart
-        const ctxMath = document.getElementById('mathChart').getContext('2d');
-        new Chart(ctxMath, {
-            type: 'doughnut',
-            data: {
-                labels: ['Baik (61%)', 'Memadai (35.4%)', 'Kurang (3.6%)'],
-                datasets: [{
-                    data: [60.98, 35.37, 3.66],
-                    backgroundColor: [colors.green, colors.yellow, colors.red],
-                    borderWidth: 0,
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { position: 'bottom', labels: { boxWidth: 12 } }
+            // Math Category Chart
+            const ctxMath = document.getElementById('mathChart').getContext('2d');
+            new Chart(ctxMath, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Baik (61%)', 'Memadai (35.4%)', 'Kurang (3.6%)'],
+                    datasets: [{ data: [60.98, 35.37, 3.66], backgroundColor: [colors.green, colors.yellow, colors.red], borderWidth: 0, hoverOffset: 4 }]
                 },
-                cutout: '65%'
-            }
-        });
+                options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }, cutout: '65%' }
+            });
 
-        // 3. Indo Category Chart
-        const ctxIndo = document.getElementById('indoChart').getContext('2d');
-        new Chart(ctxIndo, {
-            type: 'doughnut',
-            data: {
-                labels: ['Baik Istimewa (3.7%)', 'Baik (61%)', 'Memadai (34.1%)', 'Kurang (1.2%)'],
-                datasets: [{
-                    data: [3.66, 60.98, 34.15, 1.22],
-                    backgroundColor: [colors.blue, colors.green, colors.yellow, colors.red],
-                    borderWidth: 0,
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { position: 'bottom', labels: { boxWidth: 12 } }
+            // Indo Category Chart
+            const ctxIndo = document.getElementById('indoChart').getContext('2d');
+            new Chart(ctxIndo, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Baik Istimewa (3.7%)', 'Baik (61%)', 'Memadai (34.1%)', 'Kurang (1.2%)'],
+                    datasets: [{ data: [3.66, 60.98, 34.15, 1.22], backgroundColor: [colors.blue, colors.green, colors.yellow, colors.red], borderWidth: 0, hoverOffset: 4 }]
                 },
-                cutout: '65%'
-            }
-        });
+                options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } }, cutout: '65%' }
+            });
+        }
 
         // Simulator Logic
-        const rangeInput = document.getElementById('correctAnswersRange');
-        const numInput = document.getElementById('correctAnswers');
-        
-        const simMathScore = document.getElementById('simMathScore');
-        const simMathCat = document.getElementById('simMathCat');
-        
-        const simIndoScore = document.getElementById('simIndoScore');
-        const simIndoCat = document.getElementById('simIndoCat');
-
         function updateSimulation(val) {
             let correct = parseInt(val);
-            if(correct < 0) correct = 0;
-            if(correct > 30) correct = 30;
+            if(correct < 0) correct = 0; if(correct > 30) correct = 30;
             
-            // Sync inputs
-            rangeInput.value = correct;
-            numInput.value = correct;
+            document.getElementById('correctAnswersRange').value = correct;
+            document.getElementById('correctAnswers').value = correct;
 
-            // Calculate Score (Max 100)
             let score = (correct / 30) * 100;
             let displayScore = score.toFixed(2);
             
-            simMathScore.innerText = displayScore;
-            simIndoScore.innerText = displayScore;
+            document.getElementById('simMathScore').innerText = displayScore;
+            document.getElementById('simIndoScore').innerText = displayScore;
 
-            // Determine Math Category
             let mathClass = "", mathText = "";
             if(score <= 35) { mathText = "Kurang"; mathClass = "bg-red-100 text-red-800"; }
             else if(score <= 55) { mathText = "Memadai"; mathClass = "bg-yellow-100 text-yellow-800"; }
             else { mathText = "Baik"; mathClass = "bg-green-100 text-green-800"; }
-            simMathCat.className = `inline-block px-2 py-1 text-xs font-bold rounded-full ${mathClass}`;
-            simMathCat.innerText = mathText;
+            document.getElementById('simMathCat').className = `inline-block px-2 py-1 text-xs font-bold rounded-full ${mathClass}`;
+            document.getElementById('simMathCat').innerText = mathText;
 
-            // Determine Indo Category
             let indoClass = "", indoText = "";
             if(score <= 50) { indoText = "Kurang"; indoClass = "bg-red-100 text-red-800"; }
             else if(score <= 75) { indoText = "Memadai"; indoClass = "bg-yellow-100 text-yellow-800"; }
             else if(score <= 95) { indoText = "Baik"; indoClass = "bg-green-100 text-green-800"; }
             else { indoText = "Baik - Istimewa"; indoClass = "bg-blue-100 text-blue-800"; }
-            simIndoCat.className = `inline-block px-2 py-1 text-xs font-bold rounded-full ${indoClass}`;
-            simIndoCat.innerText = indoText;
+            document.getElementById('simIndoCat').className = `inline-block px-2 py-1 text-xs font-bold rounded-full ${indoClass}`;
+            document.getElementById('simIndoCat').innerText = indoText;
         }
 
-        rangeInput.addEventListener('input', (e) => updateSimulation(e.target.value));
-        numInput.addEventListener('input', (e) => updateSimulation(e.target.value));
-        
-        // Init
-        updateSimulation(15);
+        document.getElementById('correctAnswersRange').addEventListener('input', (e) => updateSimulation(e.target.value));
+        document.getElementById('correctAnswers').addEventListener('input', (e) => updateSimulation(e.target.value));
+
+
+        // ==========================================
+        // 2. GOOGLE SHEETS FETCHING LOGIC (OBFUSCATED)
+        // ==========================================
+        let studentsData = [];
+        let teacherCredentials = { username: '', password: '' };
+        let globalStats = { mathAvg: 0, indoAvg: 0, combinedAvg: 0 };
+        let isDataLoaded = false;
+
+        // Fungsi khusus pengurai teks nilai di dalam cell (contoh: "93.33 (Baik)" -> 93.33)
+        function parseScore(cellObj) {
+            if (!cellObj || cellObj.v === undefined || cellObj.v === null) return 0;
+            if (typeof cellObj.v === 'number') return cellObj.v;
+            
+            const strVal = String(cellObj.v).trim();
+            const match = strVal.match(/^[\d.]+/);
+            if (match) {
+                const num = parseFloat(match[0]);
+                return isNaN(num) ? 0 : num;
+            }
+            if (cellObj.f) {
+                const formattedStr = String(cellObj.f).trim();
+                const fMatch = formattedStr.match(/^[\d.]+/);
+                if (fMatch) {
+                    const num = parseFloat(fMatch[0]);
+                    return isNaN(num) ? 0 : num;
+                }
+            }
+            return 0;
+        }
+
+        async function fetchGoogleSheetsData() {
+            // ID Spreadsheet disandikan dengan Base64 agar tidak terlihat secara gamblang (obfuscated)
+            // Base64 string mewakili: '1kLKs9Wk4X-vJMzuiiwnTrjIX47Miwoq96Qrxi8KD-Nc'
+            const encodedSheetId = 'MWtMS3M5V2s0WC12Sk16dWlpd25UcmpJWDQ3TWl3b3E5NlFyeGk4S0QtTmM=';
+            const sheetId = atob(encodedSheetId); // Mendekode kembali menjadi ID asli secara runtime
+            
+            const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=FIX`;
+            
+            try {
+                const response = await fetch(url);
+                const text = await response.text();
+                const jsonString = text.match(/google\.visualization\.Query\.setResponse\(([\s\S\w]+)\);/)[1];
+                const data = JSON.parse(jsonString);
+                
+                let totalMath = 0; let totalIndo = 0; let validStudentCount = 0;
+                studentsData = [];
+
+                data.table.rows.forEach((row, idx) => {
+                    if(!row || !row.c) return;
+                    
+                    if (row.c[8] && row.c[8].v !== null && !teacherCredentials.username) {
+                        teacherCredentials.username = String(row.c[8].v).trim();
+                    }
+                    if (row.c[9] && row.c[9].v !== null && !teacherCredentials.password) {
+                        teacherCredentials.password = String(row.c[9].v).trim();
+                    }
+                    
+                    const noUrut = row.c[0] && row.c[0].v !== null ? String(row.c[0].v).trim() : '';
+                    const noPeserta = row.c[1] && row.c[1].v !== null ? String(row.c[1].v).trim() : '';
+                    const nisn = row.c[2] && row.c[2].v !== null ? String(row.c[2].v).trim() : '';
+                    const nama = row.c[3] && row.c[3].v !== null ? String(row.c[3].v).trim() : '';
+                    const ttl = row.c[4] && row.c[4].v !== null ? String(row.c[4].v).trim() : '';
+                    
+                    if (!noPeserta || noPeserta === '' || noPeserta.toLowerCase().includes('peserta') || nama.toLowerCase().includes('nama')) return;
+                    
+                    const mathVal = parseScore(row.c[5]);
+                    const indoVal = parseScore(row.c[6]);
+                    const avg = (mathVal + indoVal) / 2;
+                    
+                    studentsData.push({ noUrut, noPeserta, nisn, nama, ttl, math: mathVal, indo: indoVal, avg });
+                    
+                    totalMath += mathVal;
+                    totalIndo += indoVal;
+                    validStudentCount++;
+                });
+                
+                if (validStudentCount > 0) {
+                    globalStats.mathAvg = totalMath / validStudentCount;
+                    globalStats.indoAvg = totalIndo / validStudentCount;
+                    globalStats.combinedAvg = (globalStats.mathAvg + globalStats.indoAvg) / 2;
+                }
+                
+                isDataLoaded = true;
+                console.log("Data berhasil dimuat.");
+            } catch (error) {
+                console.error("Gagal memuat data dari Google Sheets:", error);
+            }
+        }
+
+
+        // ==========================================
+        // 3. UI/UX CONTROLLERS (LOGIN & VIEW)
+        // ==========================================
+        function openModal(type) {
+            document.getElementById('modal-' + type).classList.remove('hidden');
+            document.getElementById(type + '-error').classList.add('hidden');
+        }
+
+        function closeModal(type) {
+            document.getElementById('modal-' + type).classList.add('hidden');
+        }
+
+        function logout() {
+            document.getElementById('portal-guru-view').classList.add('hidden');
+            document.getElementById('portal-siswa-view').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function loginGuru() {
+            if (!isDataLoaded) { alert("Data sedang dimuat dari server, mohon tunggu beberapa detik dan coba lagi."); return; }
+            const user = document.getElementById('guru-user').value.trim();
+            const pass = document.getElementById('guru-pass').value.trim();
+            
+            if (user === teacherCredentials.username && pass === teacherCredentials.password && user !== '') {
+                closeModal('guru');
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('portal-guru-view').classList.remove('hidden');
+                renderGuruTable();
+                
+                document.getElementById('guru-user').value = '';
+                document.getElementById('guru-pass').value = '';
+                window.scrollTo({ top: 0 });
+            } else {
+                document.getElementById('guru-error').classList.remove('hidden');
+            }
+        }
+
+        function loginSiswa() {
+            if (!isDataLoaded) { alert("Data sedang dimuat dari server, mohon tunggu beberapa detik dan coba lagi."); return; }
+            const nopes = document.getElementById('siswa-user').value.trim();
+            const student = studentsData.find(s => s.noPeserta.toLowerCase() === nopes.toLowerCase());
+            
+            if (student) {
+                closeModal('siswa');
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('portal-siswa-view').classList.remove('hidden');
+                renderSiswaDashboard(student);
+                
+                document.getElementById('siswa-user').value = '';
+                window.scrollTo({ top: 0 });
+            } else {
+                document.getElementById('siswa-error').classList.remove('hidden');
+            }
+        }
+
+        // ==========================================
+        // 4. RENDER DATA TO HTML
+        // ==========================================
+        function getCategoryBadge(score, type) {
+            let catClass = "", catText = "";
+            if (type === 'math') {
+                if(score <= 35) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 55) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+            } else if (type === 'indo') {
+                if(score <= 50) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 75) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else if(score <= 95) { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+                else { catText = "Baik - Istimewa"; catClass = "bg-blue-100 text-blue-800"; }
+            } else {
+                if(score <= 42.5) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 65) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else if(score <= 95) { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+                else { catText = "Baik - Istimewa"; catClass = "bg-blue-100 text-blue-800"; }
+            }
+            return `<span class="mt-1 inline-block px-2 py-0.5 text-[10px] font-bold rounded-full ${catClass}">${catText}</span>`;
+        }
+
+        function renderGuruTable() {
+            const tbody = document.getElementById('guru-table-body');
+            tbody.innerHTML = '';
+            
+            studentsData.forEach(s => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0';
+                tr.innerHTML = `
+                    <td class="px-4 py-3">${s.noUrut || '-'}</td>
+                    <td class="px-4 py-3 font-medium text-slate-700">${s.noPeserta}</td>
+                    <td class="px-4 py-3">${s.nisn || '-'}</td>
+                    <td class="px-4 py-3 font-semibold text-slate-900">${s.nama}</td>
+                    <td class="px-4 py-3 text-xs text-slate-500 whitespace-nowrap">${s.ttl || '-'}</td>
+                    <td class="px-4 py-3 text-center">
+                        <div class="font-bold text-blue-600">${s.math.toFixed(2)}</div>
+                        ${getCategoryBadge(s.math, 'math')}
+                    </td>
+                    <td class="px-4 py-3 text-center">
+                        <div class="font-bold text-red-600">${s.indo.toFixed(2)}</div>
+                        ${getCategoryBadge(s.indo, 'indo')}
+                    </td>
+                    <td class="px-4 py-3 text-center bg-brand-50/50">
+                        <div class="font-black text-brand-700">${s.avg.toFixed(2)}</div>
+                        ${getCategoryBadge(s.avg, 'gabungan')}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            
+            document.getElementById('stat-guru-mtk').innerText = globalStats.mathAvg.toFixed(2);
+            document.getElementById('stat-guru-indo').innerText = globalStats.indoAvg.toFixed(2);
+            document.getElementById('stat-guru-gab').innerText = globalStats.combinedAvg.toFixed(2);
+        }
+
+        function setCategoryHTML(elementId, score, type) {
+            const el = document.getElementById(elementId);
+            let catClass = "", catText = "";
+            
+            if (type === 'math') {
+                if(score <= 35) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 55) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+            } else if (type === 'indo') {
+                if(score <= 50) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 75) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else if(score <= 95) { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+                else { catText = "Baik - Istimewa"; catClass = "bg-blue-100 text-blue-800"; }
+            } else {
+                if(score <= 42.5) { catText = "Kurang"; catClass = "bg-red-100 text-red-800"; }
+                else if(score <= 65) { catText = "Memadai"; catClass = "bg-yellow-100 text-yellow-800"; }
+                else if(score <= 95) { catText = "Baik"; catClass = "bg-green-100 text-green-800"; }
+                else { catText = "Baik - Istimewa"; catClass = "bg-blue-100 text-blue-800"; }
+            }
+            
+            el.className = `inline-block px-4 py-1 text-xs font-bold rounded-full ${catClass}`;
+            el.innerText = catText;
+        }
+
+        function renderSiswaDashboard(s) {
+            document.getElementById('sw-nama').innerText = s.nama;
+            document.getElementById('sw-nisn').innerText = s.nisn || '-';
+            document.getElementById('sw-nopes').innerText = s.noPeserta;
+            document.getElementById('sw-ttl').innerText = s.ttl || '-';
+            
+            document.getElementById('sw-mtk').innerText = s.math.toFixed(2);
+            setCategoryHTML('sw-mtk-cat', s.math, 'math');
+            
+            document.getElementById('sw-indo').innerText = s.indo.toFixed(2);
+            setCategoryHTML('sw-indo-cat', s.indo, 'indo');
+            
+            document.getElementById('sw-avg').innerText = s.avg.toFixed(2);
+            setCategoryHTML('sw-avg-cat', s.avg, 'gabungan');
+        }
+
+        // ==========================================
+        // 5. INITIALIZE ON LOAD
+        // ==========================================
+        window.onload = () => {
+            initCharts();
+            updateSimulation(15);
+            fetchGoogleSheetsData();
+        };
 
     </script>
 </body>
